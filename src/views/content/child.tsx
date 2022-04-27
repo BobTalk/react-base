@@ -1,0 +1,23 @@
+/*
+ * @Author: your name
+ * @Date: 2022-04-27 19:51:20
+ * @LastEditTime: 2022-04-27 20:40:24
+ * @LastEditors: Please set LastEditors
+ * @Description: 获取父级颜色集合
+ * @FilePath: /react-demo/src/views/content/child.tsx
+ */
+import { ColorContextProvider } from "./index";
+function ChildColor() {
+  let { $color = [] } = ColorContextProvider();
+  return (
+    <>
+      {$color.map((item) => (
+        <div
+          key={item}
+          style={{ background: item, width: "20px", height: "20px" }}
+        ></div>
+      ))}
+    </>
+  );
+}
+export default ChildColor;
