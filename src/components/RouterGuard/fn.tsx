@@ -20,9 +20,7 @@ export default class Fn {
     const list: RouteObject[] = [];
     routeList.forEach((route) => {
       const obj = { ...route };
-      if (obj.path === undefined) {
-        return;
-      }
+      if (obj.path === undefined) return;
       if (obj.redirect) {
         obj.element = <Navigate to={obj.redirect} replace={true} />;
       } else if (obj.component) {

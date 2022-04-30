@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 16:27:52
- * @LastEditTime: 2022-04-27 16:59:12
+ * @LastEditTime: 2022-04-28 17:31:33
  * @LastEditors: Please set LastEditors
  * @Description: 页面路由容器组件
  * @FilePath: /react-demo/src/components/RouterGuard/guard.tsx
@@ -16,11 +16,11 @@ function Guard ({ element, meta, onRouteBefore }: {element: ReactElementType; me
   const location = useLocation()
   const { pathname } = location
   const navigate = useNavigate()
+  const pathRes = onRouteBefore({ pathname, meta })
   if (onRouteBefore) {
     if (temp === element) {
       return element
     }
-    const pathRes = onRouteBefore({ pathname, meta })
     if (utils.getDataType(pathRes) === 'Promise') {
       (pathRes as Promise<OnRouteBeforeResType>).then((res: OnRouteBeforeResType) => {
         if (res && res !== pathname) {
@@ -34,7 +34,6 @@ function Guard ({ element, meta, onRouteBefore }: {element: ReactElementType; me
     }
   }
   temp = element
-  console.log('element: ', element);
   return element
 }
 

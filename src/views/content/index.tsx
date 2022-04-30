@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 17:35:22
- * @LastEditTime: 2022-04-27 20:39:58
+ * @LastEditTime: 2022-04-28 08:51:48
  * @LastEditors: Please set LastEditors
  * @Description: 上下文
  * @FilePath: /react-demo/src/views/content/index.tsx
@@ -30,5 +30,5 @@ export default function ContentProvide() {
     </>
   );
 }
-
+// console.log(useContext(ColorContext));
 export const ColorContextProvider = () => useContext(ColorContext);
