@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, RouteObject } from "react-router-dom";
+import { Navigate, Outlet, RouteObject, useLocation } from "react-router-dom";
 import Guard from "./guard.tsx";
 import { RouterWaiterPropsType, MetaType, FunctionalImportType } from "@/types";
 
@@ -18,25 +18,41 @@ export default class Fn {
    */
   transformRoutes(routeList = this.routes) {
     const list: RouteObject[] = [];
-    routeList.forEach((route) => {
-      const obj = { ...route };
+    for (let routeIndex = 0; routeIndex < routeList.length; routeIndex++) {
+      let obj = { ...routeList[routeIndex] }
+      let location = useLocation()
       if (obj.path === undefined) return;
       if (obj.redirect) {
-        obj.element = <Navigate to={obj.redirect} replace={true} />;
+        let splitRoute =  obj.redirect.trim().split('/').filter(Boolean)
+        this.routesFilter((currentRouter) => {
+          if (currentRouter.path == splitRoute.at(-1)) {
+            obj.element = <Outlet></Outlet>
+            let resultRedirect = this.onRouteBefore(currentRouter, routeList[routeIndex], (redirectPath) => {
+              obj.element = <Navigate to={redirectPath || obj.redirect} replace={true} />;
+              return true
+            })
+          }
+         }, routeList)
       } else if (obj.component) {
         obj.element = this.lazyLoad(obj.component, obj.meta || {});
       }
       delete obj.redirect;
       delete obj.component;
-      delete obj.meta;
+      // delete obj.meta;
       if (obj.children) {
         obj.children = this.transformRoutes(obj.children);
       }
       list.push(obj);
-    });
+    }
     return list;
   }
-
+  
+  routesFilter(fn, routesList = [], children = 'children') {
+    return routesList.map(node => ({ ...node })).filter(node => {
+      node[children] = node[children] && this.routesFilter(fn, node[children])
+      return fn(node) || (node[children] && node[children].length)
+    })
+  }
   /**
    * @description: 路由懒加载
    */
@@ -54,8 +70,5 @@ export default class Fn {
         onRouteBefore={this.onRouteBefore}
       />
     );
-  }
-  render() {
-    return <div>fn</div>;
   }
 }
