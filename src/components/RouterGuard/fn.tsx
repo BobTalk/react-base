@@ -24,7 +24,10 @@ export default class Fn {
       if (obj.path === undefined) return;
       if (obj.redirect) {
         let splitRoute =  obj.redirect.trim().split('/').filter(Boolean)
+        console.log('splitRoute: ', splitRoute);
         this.routesFilter((currentRouter) => {
+          console.log('currentRouter: ', currentRouter);
+          currentRouter.path = currentRouter.path.startsWith('/') && currentRouter.path.replace('/','')
           if (currentRouter.path == splitRoute.at(-1)) {
             obj.element = <Outlet></Outlet>
             let resultRedirect = this.onRouteBefore(currentRouter, routeList[routeIndex], (redirectPath) => {
@@ -58,17 +61,12 @@ export default class Fn {
    */
   lazyLoad(importFn: FunctionalImportType, meta: MetaType) {
     const Element = React.lazy(importFn);
-    const lazyElement = (
+    console.log('Element: ', Element);
+    const LazyElement = (
       <React.Suspense fallback={this.loading}>
         <Element _meta={meta} />
       </React.Suspense>
     );
-    return (
-      <Guard
-        element={lazyElement}
-        meta={meta}
-        onRouteBefore={this.onRouteBefore}
-      />
-    );
+    return LazyElement;
   }
 }
