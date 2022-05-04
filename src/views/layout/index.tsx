@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2022-05-04 19:25:04
+ * @LastEditTime: 2022-05-04 19:48:17
  * @LastEditors: Please set LastEditors
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
  */
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
+import SideComp from "./sider";
 function ProjectLayout() {
   return (
     <>
@@ -17,7 +18,7 @@ function ProjectLayout() {
         </Layout.Header>
         <Layout>
           <Layout.Sider>
-          <span className='text-white'>Sider</span>
+            <SideComp></SideComp>
           </Layout.Sider>
           <Layout>
             <Layout.Content>
