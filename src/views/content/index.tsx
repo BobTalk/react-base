@@ -1,12 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 17:35:22
- * @LastEditTime: 2022-04-28 08:51:48
+ * @LastEditTime: 2022-05-04 17:38:57
  * @LastEditors: Please set LastEditors
  * @Description: 上下文
  * @FilePath: /react-demo/src/views/content/index.tsx
  */
 import React, { useState, createContext, useContext } from "react";
+import { Outlet } from "react-router-dom";
 import ChildComp from "./child";
 const ColorContext = createContext({});
 export default function ContentProvide() {
@@ -30,5 +31,4 @@ export default function ContentProvide() {
     </>
   );
 }
-// console.log(useContext(ColorContext));
 export const ColorContextProvider = () => useContext(ColorContext);
