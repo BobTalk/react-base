@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 19:51:20
- * @LastEditTime: 2022-04-30 20:50:54
+ * @LastEditTime: 2022-05-05 19:26:26
  * @LastEditors: Please set LastEditors
  * @Description: 获取父级颜色集合
  * @FilePath: /react-demo/src/views/content/child.tsx
@@ -12,10 +12,9 @@ import { useLocation } from "react-router-dom";
 import { ColorContextProvider } from "./";
 function ChildColor() {
   let { pathname } = useLocation();
-  console.log("location: ", pathname);
   let scopedColor = ["blue", "yellow"];
   let { $color = [] } = ColorContextProvider();
-  let [$colorMerge] = useState(pathname == "/contextIndex/colorChild" ? scopedColor : $color);
+  let [$colorMerge] = useState(["/layout/contextIndex/colorChild", "/layout/contextIndex"].includes(pathname) ? $color : scopedColor);
   return (
     <>
       {$colorMerge.map((item) => (
