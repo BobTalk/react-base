@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-05-06 12:37:29
+ * @LastEditTime: 2022-05-06 14:32:37
  * @LastEditors: Please set LastEditors
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -9,15 +9,7 @@
 
 import { forwardRef, useImperativeHandle } from "react";
 import { Menu, MenuProps } from "antd";
-import {
-  AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
+import { AppstoreOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 type MenuItem = Required<MenuProps>["items"][number];
 function getItem(
@@ -53,7 +45,13 @@ const SideComp = forwardRef((props, ref) => {
       getItem("监听数据", "useEffect_3", "/layout/useEffect/array"),
       getItem("销毁作用域", "useEffect_4", "/layout/useEffect/destroy"),
     ]),
-    getItem("useMemo", "useMemo","/layout/useMemo", <AppstoreOutlined />)
+    getItem(
+      "useLayoutEffect",
+      "useLayoutEffect",
+      "/layout/useLayoutEffect",
+      <AppstoreOutlined />
+    ),
+    getItem("useMemo", "useMemo", "/layout/useMemo", <AppstoreOutlined />),
   ];
   const menuItemClick: MenuProps["onClick"] = ({ item }) => {
     let { path, name } = item.props;
@@ -61,12 +59,7 @@ const SideComp = forwardRef((props, ref) => {
     navigate(path, { state: {}, replace: false });
   };
   return (
-    <Menu
-      onClick={menuItemClick}
-      mode="inline"
-      theme="dark"
-      items={items}
-    />
+    <Menu onClick={menuItemClick} mode="inline" theme="dark" items={items} />
   );
 });
 export default SideComp;
