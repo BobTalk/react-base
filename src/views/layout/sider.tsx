@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-05-05 19:41:06
+ * @LastEditTime: 2022-05-06 12:37:29
  * @LastEditors: Please set LastEditors
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -53,6 +53,7 @@ const SideComp = forwardRef((props, ref) => {
       getItem("监听数据", "useEffect_3", "/layout/useEffect/array"),
       getItem("销毁作用域", "useEffect_4", "/layout/useEffect/destroy"),
     ]),
+    getItem("useMemo", "useMemo","/layout/useMemo", <AppstoreOutlined />)
   ];
   const menuItemClick: MenuProps["onClick"] = ({ item }) => {
     let { path, name } = item.props;

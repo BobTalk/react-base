@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-05-05 19:26:53
+ * @LastEditTime: 2022-05-06 12:36:36
  * @LastEditors: Please set LastEditors
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -13,6 +13,7 @@ import DefaultComp from "@/views/useEffect/default.tsx";
 import ArrayComp from "@/views/useEffect/array.tsx";
 import DestroyComp from "@/views/useEffect/destroy.tsx";
 import NodataComp from "@/views/useEffect/nodata.tsx";
+import memoComp from "@/views/useMemo/index.tsx";
 const routeList = [
   {
     path: "/layout",
@@ -51,6 +52,10 @@ const routeList = [
             component: NodataComp,
           },
         ],
+      },
+      {
+        path: "useMemo",
+        component: memoComp,
       },
     ],
   },
