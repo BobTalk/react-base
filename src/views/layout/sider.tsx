@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-05-05 19:27:06
+ * @LastEditTime: 2022-05-05 19:41:06
  * @LastEditors: Please set LastEditors
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -54,8 +54,7 @@ const SideComp = forwardRef((props, ref) => {
       getItem("销毁作用域", "useEffect_4", "/layout/useEffect/destroy"),
     ]),
   ];
-  const menuItemClick: MenuProps["onClick"] = (e) => {
-    let { item } = e;
+  const menuItemClick: MenuProps["onClick"] = ({ item }) => {
     let { path, name } = item.props;
     document.title = name;
     navigate(path, { state: {}, replace: false });
@@ -63,8 +62,6 @@ const SideComp = forwardRef((props, ref) => {
   return (
     <Menu
       onClick={menuItemClick}
-      defaultSelectedKeys={["context_1"]}
-      defaultOpenKeys={["context"]}
       mode="inline"
       theme="dark"
       items={items}
