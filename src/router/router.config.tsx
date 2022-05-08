@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-05-06 14:23:57
+ * @LastEditTime: 2022-05-06 14:57:31
  * @LastEditors: Please set LastEditors
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -15,6 +15,7 @@ import DestroyComp from "@/views/useEffect/destroy.tsx";
 import NodataComp from "@/views/useEffect/nodata.tsx";
 import memoComp from "@/views/useMemo/index.tsx";
 import layoutEffectComp from "@/views/layoutEffect/index.tsx";
+import reducerComp from "@/views/reducer/index.tsx";
 const routeList = [
   {
     path: "/layout",
@@ -61,6 +62,10 @@ const routeList = [
       {
         path: "useLayoutEffect",
         component: layoutEffectComp,
+      },
+      {
+        path: "useReducer",
+        component: reducerComp,
       },
     ],
   },
