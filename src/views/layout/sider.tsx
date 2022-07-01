@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-07-01 14:35:58
+ * @LastEditTime: 2022-07-01 15:38:54
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -41,9 +41,9 @@ const SideComp = forwardRef((props, ref) => {
     ]),
     getItem("useEffect", "useEffect", null, <AppstoreOutlined />, [
       getItem("默认", "useEffect_1", "/layout/useEffect/default"),
-      getItem("监听空数组", "useEffect_2", "/layout/useEffect/nodata"),
-      getItem("监听数据", "useEffect_3", "/layout/useEffect/array"),
-      getItem("销毁作用域", "useEffect_4", "/layout/useEffect/destroy"),
+      getItem("useMount", "useEffect_2", "/layout/useEffect/nodata"),
+      getItem("useUpdate", "useEffect_3", "/layout/useEffect/array"),
+      getItem("useUnmount", "useEffect_4", "/layout/useEffect/destroy"),
     ]),
     getItem(
       "useLayoutEffect",
@@ -62,6 +62,24 @@ const SideComp = forwardRef((props, ref) => {
       "缓存",
       "useCreationComp",
       "/layout/useCreation",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "callBack",
+      "callBackComp",
+      "/layout/useCallback",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "强制更新",
+      "useUpdateComp",
+      "/layout/useUpdate",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "响应式数据",
+      "useReactiveComp",
+      "/layout/useReactive",
       <AppstoreOutlined />
     ),
   ];

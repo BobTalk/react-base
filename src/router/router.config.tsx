@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-07-01 14:34:04
+ * @LastEditTime: 2022-07-01 15:38:01
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -17,6 +17,9 @@ import memoComp from "@/views/useMemo/index.tsx";
 import useCreationComp from '@/views/useCreation/index.tsx';
 import layoutEffectComp from "@/views/layoutEffect/index.tsx";
 import reducerComp from "@/views/reducer/index.tsx";
+import callBackComp from "@/views/useCallback";
+import useUpdateComp from "@/views/useUpdate";
+import useReactiveComp from "@/views/useReactive";
 const routeList = [
   {
     path: "/layout",
@@ -61,6 +64,14 @@ const routeList = [
         component: memoComp,
       },
       {
+        path: "useCallBack",
+        component: callBackComp,
+      },
+      {
+        path: "useUpdate",
+        component: useUpdateComp,
+      },
+      {
         path: "useCreation",
         component: useCreationComp,
       },
@@ -71,6 +82,10 @@ const routeList = [
       {
         path: "useReducer",
         component: reducerComp,
+      },
+      {
+        path: "useReactive",
+        component: useReactiveComp,
       },
     ],
   },
