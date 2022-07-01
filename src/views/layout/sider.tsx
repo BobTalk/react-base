@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-05-06 14:57:32
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-07-01 14:35:58
+ * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
  */
@@ -52,7 +52,18 @@ const SideComp = forwardRef((props, ref) => {
       <AppstoreOutlined />
     ),
     getItem("useMemo", "useMemo", "/layout/useMemo", <AppstoreOutlined />),
-    getItem("useReducer", "useReducer", "/layout/useReducer", <AppstoreOutlined />),
+    getItem(
+      "useReducer",
+      "useReducer",
+      "/layout/useReducer",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "缓存",
+      "useCreationComp",
+      "/layout/useCreation",
+      <AppstoreOutlined />
+    ),
   ];
   const menuItemClick: MenuProps["onClick"] = ({ item }) => {
     let { path, name } = item.props;
