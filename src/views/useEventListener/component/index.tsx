@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-07-01 15:56:27
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-07-01 16:08:08
+ * @LastEditTime: 2022-07-01 16:18:46
  * @FilePath: /react-demo/src/views/layout/useEventListener/component/index.tsx
  * @Description: 监听页面事件
  */
@@ -61,7 +61,6 @@ const useEventListener = (event: string, handler: (...e:any) => void, target: an
 
   useEffectTarget(() => {
     const targetElement  = 'current' in target ? target.current : window;
-
     //  防止没有 addEventListener 这个属性
     if(!targetElement?.addEventListener) return;
 
