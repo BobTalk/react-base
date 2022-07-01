@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-07-01 16:03:10
+ * @LastEditTime: 2022-07-01 16:34:39
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -86,6 +86,18 @@ const SideComp = forwardRef((props, ref) => {
       "监听页面操作",
       "useEventListenerComp",
       "/layout/useEventListener",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "hover操作",
+      "useHoverComp",
+      "/layout/useHover",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "倒计时",
+      "useCountDownComp",
+      "/layout/useCountDown",
       <AppstoreOutlined />
     ),
   ];
