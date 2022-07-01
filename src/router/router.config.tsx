@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-07-01 15:38:01
+ * @LastEditTime: 2022-07-01 16:03:34
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -20,6 +20,7 @@ import reducerComp from "@/views/reducer/index.tsx";
 import callBackComp from "@/views/useCallback";
 import useUpdateComp from "@/views/useUpdate";
 import useReactiveComp from "@/views/useReactive";
+import useEventListenerComp from "@/views/useEventListener";
 const routeList = [
   {
     path: "/layout",
@@ -86,6 +87,10 @@ const routeList = [
       {
         path: "useReactive",
         component: useReactiveComp,
+      },
+      {
+        path: "useEventListener",
+        component: useEventListenerComp,
       },
     ],
   },

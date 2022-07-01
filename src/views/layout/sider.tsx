@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-07-01 15:38:54
+ * @LastEditTime: 2022-07-01 16:03:10
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -80,6 +80,12 @@ const SideComp = forwardRef((props, ref) => {
       "响应式数据",
       "useReactiveComp",
       "/layout/useReactive",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "监听页面操作",
+      "useEventListenerComp",
+      "/layout/useEventListener",
       <AppstoreOutlined />
     ),
   ];
