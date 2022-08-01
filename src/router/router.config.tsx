@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-07-01 16:35:02
+ * @LastEditTime: 2022-08-01 09:10:27
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -23,6 +23,7 @@ import useReactiveComp from "@/views/useReactive";
 import useEventListenerComp from "@/views/useEventListener";
 import useHoverComp from "@/views/useHover";
 import useCountDownComp from "@/views/useCountDown";
+import createContext from "../views/createContext";
 const routeList = [
   {
     path: "/layout",
@@ -101,6 +102,10 @@ const routeList = [
       {
         path: "useCountDown",
         component: useCountDownComp,
+      },
+      {
+        path: "createContext",
+        component: createContext,
       },
     ],
   },

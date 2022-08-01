@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-07-01 16:34:39
+ * @LastEditTime: 2022-08-01 09:13:19
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -98,6 +98,12 @@ const SideComp = forwardRef((props, ref) => {
       "倒计时",
       "useCountDownComp",
       "/layout/useCountDown",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "createContext",
+      "createContext",
+      "/layout/createContext",
       <AppstoreOutlined />
     ),
   ];
