@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-08-01 09:13:19
+ * @LastEditTime: 2022-08-01 09:30:08
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -101,7 +101,7 @@ const SideComp = forwardRef((props, ref) => {
       <AppstoreOutlined />
     ),
     getItem(
-      "createContext",
+      "父子组件数据共享",
       "createContext",
       "/layout/createContext",
       <AppstoreOutlined />
