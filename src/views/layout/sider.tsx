@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-09-09 09:48:32
+ * @LastEditTime: 2022-09-09 11:11:41
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -116,6 +116,12 @@ const SideComp = forwardRef((props, ref) => {
       "自动向上滚动",
       "autoScroll",
       "/layout/autoScroll",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "监听数据更新页面",
+      "syncExternalStore",
+      "/layout/syncExternalStore",
       <AppstoreOutlined />
     ),
     getItem(
