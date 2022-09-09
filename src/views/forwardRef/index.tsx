@@ -1,11 +1,14 @@
 import React, { Component, Suspense, createRef, useState } from "react";
+import ForwardChild from "./child";
 import MyInput from "./MyInput";
 const App = () => {
   const inputRef = createRef();
+  const childRef = createRef();
   let [innerHtml, setInnerHtml] = useState("");
   // 点击父组件中的搜素按钮
   const onClick = () => {
     const { current } = inputRef;
+    console.log(childRef.current);
     setInnerHtml(current.outerHTML);
     current?.focus();
   };
@@ -21,6 +24,9 @@ const App = () => {
         <span>插入如下元素</span>
         <div dangerouslySetInnerHTML={{ __html: `${innerHtml}` }}></div>
       </div>
+
+      <hr />
+      <ForwardChild ref={childRef}></ForwardChild>
     </div>
   );
 };
