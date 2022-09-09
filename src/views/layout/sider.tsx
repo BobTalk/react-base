@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-08-03 10:11:20
+ * @LastEditTime: 2022-09-09 09:13:06
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -104,6 +104,12 @@ const SideComp = forwardRef((props, ref) => {
       "父子组件数据共享",
       "createContext",
       "/layout/createContext",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "父组件获取子组建元素/调用函数",
+      "forwardRef",
+      "/layout/forwardRef",
       <AppstoreOutlined />
     ),
     getItem(

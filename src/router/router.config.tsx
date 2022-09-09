@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-08-03 10:05:04
+ * @LastEditTime: 2022-09-09 09:13:43
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -25,6 +25,7 @@ import useHoverComp from "@/views/useHover";
 import useCountDownComp from "@/views/useCountDown";
 import createContext from "@/views/createContext";
 import AutoScroll from "../views/autoScroll/index";
+import ForwardRef from "../views/forwardRef/index";
 const routeList = [
   {
     path: "/layout",
@@ -111,6 +112,10 @@ const routeList = [
       {
         path: "autoScroll",
         component: AutoScroll ,
+      },
+      {
+        path: "forwardRef",
+        component: ForwardRef ,
       },
     ],
   },
