@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-09-09 09:13:43
+ * @LastEditTime: 2022-09-09 09:49:05
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -26,6 +26,7 @@ import useCountDownComp from "@/views/useCountDown";
 import createContext from "@/views/createContext";
 import AutoScroll from "../views/autoScroll/index";
 import ForwardRef from "../views/forwardRef/index";
+import InsertChildNode from "../views/insertChildNode/index";
 const routeList = [
   {
     path: "/layout",
@@ -116,6 +117,10 @@ const routeList = [
       {
         path: "forwardRef",
         component: ForwardRef ,
+      },
+      {
+        path: "insertChildNode",
+        component: InsertChildNode ,
       },
     ],
   },

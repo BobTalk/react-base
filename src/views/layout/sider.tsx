@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-09-09 09:13:06
+ * @LastEditTime: 2022-09-09 09:48:32
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -116,6 +116,12 @@ const SideComp = forwardRef((props, ref) => {
       "自动向上滚动",
       "autoScroll",
       "/layout/autoScroll",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "插入子节点",
+      "insertChildNode",
+      "/layout/insertChildNode",
       <AppstoreOutlined />
     ),
   ];
