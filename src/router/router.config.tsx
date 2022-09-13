@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-09-09 11:06:51
+ * @LastEditTime: 2022-09-09 16:33:55
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -28,6 +28,7 @@ import AutoScroll from "../views/autoScroll/index";
 import ForwardRef from "../views/forwardRef/index";
 import InsertChildNode from "../views/insertChildNode/index";
 import syncExternalStore from "../views/useSyncExternalStore";
+import transitionComp from "../views/useTransition";
 const routeList = [
   {
     path: "/layout",
@@ -126,6 +127,10 @@ const routeList = [
       {
         path: "syncExternalStore",
         component: syncExternalStore,
+      },
+      {
+        path: "transition",
+        component: transitionComp,
       },
     ],
   },

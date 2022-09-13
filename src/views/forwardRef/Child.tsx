@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-09-09 10:18:10
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-09-09 10:51:28
+ * @LastEditTime: 2022-09-13 15:02:43
  * @FilePath: /react-demo/src/views/forwardRef/child.tsx
  * @Description: 子组件
  */
@@ -15,7 +15,7 @@ const Child = ({ childRef }) => {
   // ref：useRef所创建的ref
   // createHandle：处理的函数，返回值作为暴露给父组件的 ref 对象。
   // deps：依赖项，依赖项更改形成新的 ref 对象。
-  useImperativeHandle(ref, () => ({}), []);
+  useImperativeHandle(childRef, () => ({}), []);
   return (
     <div>
       <div>子组件</div>

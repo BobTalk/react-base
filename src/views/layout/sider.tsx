@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-09-09 11:11:41
+ * @LastEditTime: 2022-09-09 16:35:00
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -122,6 +122,12 @@ const SideComp = forwardRef((props, ref) => {
       "监听数据更新页面",
       "syncExternalStore",
       "/layout/syncExternalStore",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "数据更新等待态",
+      "transition",
+      "/layout/transition",
       <AppstoreOutlined />
     ),
     getItem(
