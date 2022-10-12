@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-09-09 16:33:55
+ * @LastEditTime: 2022-10-12 10:58:04
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -24,16 +24,21 @@ import useEventListenerComp from "@/views/useEventListener";
 import useHoverComp from "@/views/useHover";
 import useCountDownComp from "@/views/useCountDown";
 import createContext from "@/views/createContext";
-import AutoScroll from "../views/autoScroll/index";
-import ForwardRef from "../views/forwardRef/index";
-import InsertChildNode from "../views/insertChildNode/index";
-import syncExternalStore from "../views/useSyncExternalStore";
-import transitionComp from "../views/useTransition";
+import AutoScroll from "@/views/autoScroll/index";
+import ForwardRef from "@/views/forwardRef/index";
+import InsertChildNode from "@/views/insertChildNode/index";
+import syncExternalStore from "@/views/useSyncExternalStore";
+import transitionComp from "@/views/useTransition";
+import BarComp from "@/views/Bar/index";
 const routeList = [
   {
     path: "/layout",
     component: ProjectLayout,
     children: [
+      {
+        path: 'bar',
+        component: BarComp
+      },
       {
         path: "colorChild",
         component: ContentChildComp,

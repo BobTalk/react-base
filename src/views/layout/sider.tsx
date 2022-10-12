@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-09-09 16:35:00
+ * @LastEditTime: 2022-10-12 10:33:06
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -38,6 +38,9 @@ const SideComp = forwardRef((props, ref) => {
     getItem("上下文", "context", null, <AppstoreOutlined />, [
       getItem("父组件数据", "context_1", "/layout/contextIndex/colorChild"),
       getItem("子组件默认数据", "context_2", "/layout/colorChild"),
+    ]),
+    getItem("图表", "charts", null, <AppstoreOutlined />, [
+      getItem("柱子", "bar", "/layout/bar"),
     ]),
     getItem("useEffect", "useEffect", null, <AppstoreOutlined />, [
       getItem("默认", "useEffect_1", "/layout/useEffect/default"),
