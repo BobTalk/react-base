@@ -1,16 +1,16 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-10-12 10:33:06
+ * @LastEditTime: 2022-10-12 14:35:23
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
  */
 
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { Menu, MenuProps } from "antd";
 import { AppstoreOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 type MenuItem = Required<MenuProps>["items"][number];
 function getItem(
   label: React.ReactNode,
@@ -33,6 +33,10 @@ function getItem(
 
 const SideComp = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({}));
+  let {
+    state: { key },
+  } = useLocation();
+  let [currentActiveKey, setCurrentActiveKey] = useState(key);
   let navigate = useNavigate();
   const items: MenuItem[] = [
     getItem("上下文", "context", null, <AppstoreOutlined />, [
@@ -140,13 +144,20 @@ const SideComp = forwardRef((props, ref) => {
       <AppstoreOutlined />
     ),
   ];
-  const menuItemClick: MenuProps["onClick"] = ({ item }) => {
+  const menuItemClick: MenuProps["onClick"] = ({ item, key }) => {
     let { path, name } = item.props;
+    setCurrentActiveKey((currentActiveKey) => (currentActiveKey = key));
     document.title = name;
-    navigate(path, { state: {}, replace: false });
+    navigate(path, { state: { key }, replace: false });
   };
   return (
-    <Menu onClick={menuItemClick} mode="inline" theme="dark" items={items} />
+    <Menu
+      onClick={menuItemClick}
+      mode="inline"
+      selectedKeys={[currentActiveKey]}
+      theme="dark"
+      items={items}
+    />
   );
 });
 export default SideComp;
