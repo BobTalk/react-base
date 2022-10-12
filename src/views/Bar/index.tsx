@@ -1,5 +1,7 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
+import TooltipComp from "../../components/uiComp/Tooltip";
 const BarComp = (props) => {
-  return <BarComponents></BarComponents>;
+  // <BarComponents></BarComponents>;
+  return <TooltipComp></TooltipComp>;
 };
 export default BarComp;
