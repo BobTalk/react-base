@@ -1,10 +1,3 @@
-/**
- * @Description: 类型定义
- * @Author: Neo
- * @Date: 2022-03-08
- * @LastEditTime: 2022-03-11
- * @LastEditors: Neo
- */
 import { RouteObject } from 'react-router-dom'
 
 interface MetaType {

@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:08:57
- * @LastEditTime: 2022-05-04 19:28:25
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-10-12 10:20:52
+ * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: vite配置文件
  * @FilePath: /react-demo/vite.config.ts
  */
@@ -43,6 +43,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    port: 8000
   }
 })
