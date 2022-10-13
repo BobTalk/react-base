@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 14:44:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-13 14:31:48
+ * @LastEditTime: 2022-10-13 18:55:05
  * @FilePath: /react-base/src/components/uiComp/Tooltip/index.tsx
  * @Description: tooltip组件
  */
@@ -13,7 +13,11 @@ const TooltipComp = (props) => {
   const [tooltipArr, setTooltipArr] = useState(props.data);
   const [_, setRefresh] = useState({});
   const TooltipBoxRef = useRef();
-  const tooltipChangeCb = (open, currentItem) => {
+  const tooltipChangeCb = (open, currentItem, prv) => {
+    let parentArr = findParents(tooltipArr, currentItem.parentId) || [];
+    parentArr[0]?.children.forEach((item) => {
+      item.visible = false;
+    });
     treeForeach((item) => {
       if (item.id == currentItem.id) {
         item.visible = !item.visible;
@@ -23,6 +27,31 @@ const TooltipComp = (props) => {
     }, tooltipArr);
     setRefresh({});
   };
+
+  const findParents = (array, id, children = "children") => {
+    let parentArray = [];
+    if (array.length === 0) {
+      return parentArray;
+    }
+    function recursion(arrayNew, id, children) {
+      for (let i = 0; i < arrayNew.length; i++) {
+        let node = arrayNew[i];
+        if (node.id === id) {
+          parentArray.unshift(node);
+          continue;
+        } else {
+          let childList = node[children];
+          if (!!childList) {
+            recursion(childList, id, children);
+          }
+        }
+      }
+      return parentArray;
+    }
+    parentArray = recursion(array, id, children);
+    return parentArray;
+  };
+
   const nodeClickCb = (currentNode) => {
     treeForeach((item) => {
       item.visible = false;
@@ -52,16 +81,29 @@ const TooltipComp = (props) => {
     <div ref={TooltipBoxRef}>
       <RecursionComp
         nodeClick={nodeClickCb}
+        color={props.color}
+        overlayClassName={props.overlayClassName}
+        overlayStyle={props.overlayStyle}
+        overlayInnerStyle={props.overlayInnerStyle}
+        placement={props.placement}
+        trigger={props.trigger}
+        zIndex={props.zIndex}
         onOpenChange={tooltipChangeCb}
         tooltipArr={tooltipArr}
+        arrowPointAtCenter={props.arrowPointAtCenter}
       ></RecursionComp>
     </div>
   );
 };
 TooltipComp.defaultProps = {
   data: [],
+  color: "#FFF",
+  overlayClassName: "", // 卡片类名
+  overlayStyle: {}, // 卡片样式
+  overlayInnerStyle: {}, // 卡片内容区域的样式对象
+  placement: "left",
+  trigger: "click",
+  zIndex: 999,
+  arrowPointAtCenter: true,
 };
-export default memo(TooltipComp, () => {
-  console.log("sdsds");
-  return false;
-});
+export default TooltipComp;
