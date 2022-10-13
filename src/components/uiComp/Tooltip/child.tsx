@@ -3,10 +3,10 @@ import { memo, useState, useEffect } from "react";
 const RecursionComp = (props) => {
   let { tooltipArr, visible } = props;
   return tooltipArr.map((item) => {
-    // if (item.children && item.children.length) {
     return (
       <Tooltip
         arrowPointAtCenter={true}
+        getPopupContainer={(triggerNode) => triggerNode.parentNode}
         trigger="click"
         visible={item.visible}
         onOpenChange={props.onOpenChange}
@@ -38,13 +38,7 @@ const RecursionComp = (props) => {
         </div>
       </Tooltip>
     );
-    // } else {
-    //   return (
-    //     <p key={item.id} onClick={props.nodeClick}>
-    //       {item.label}
-    //     </p>
-    //   );
-    // }
+   
   });
 };
 export default RecursionComp;

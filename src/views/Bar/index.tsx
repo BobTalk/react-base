@@ -1,7 +1,6 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
 import TooltipComp from "../../components/uiComp/Tooltip";
 const BarComp = (props) => {
-  // <BarComponents></BarComponents>;
   const titleArr = [
     {
       label: "高级计算",
@@ -79,6 +78,11 @@ const BarComp = (props) => {
     },
   ];
 
-  return <TooltipComp data={titleArr}></TooltipComp>;
+  return (
+    <div className='flex'>
+      <BarComponents></BarComponents>
+      <TooltipComp data={titleArr}></TooltipComp>
+    </div>
+  );
 };
 export default BarComp;
