@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 14:44:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-13 18:55:05
+ * @LastEditTime: 2022-10-13 19:00:29
  * @FilePath: /react-base/src/components/uiComp/Tooltip/index.tsx
  * @Description: tooltip组件
  */
@@ -15,6 +15,7 @@ const TooltipComp = (props) => {
   const TooltipBoxRef = useRef();
   const tooltipChangeCb = (open, currentItem, prv) => {
     let parentArr = findParents(tooltipArr, currentItem.parentId) || [];
+    // 抓取当前节点的父节点
     parentArr[0]?.children.forEach((item) => {
       item.visible = false;
     });

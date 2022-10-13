@@ -42,7 +42,6 @@ const RecursionComp = (props) => {
       >
         <div>
           <Button
-            data-prvIndex={tooltipArr[index - 1]?.id}
             onClick={(e) => {
               item.children && item.children.length
                 ? props.onOpenChange(!visible, item)
