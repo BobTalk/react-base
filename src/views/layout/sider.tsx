@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2022-10-12 14:35:23
+ * @LastEditTime: 2022-10-13 08:59:16
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -33,9 +33,8 @@ function getItem(
 
 const SideComp = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({}));
-  let {
-    state: { key },
-  } = useLocation();
+  let { state } = useLocation();
+  let { key } = state ?? { key: "context_1" };
   let [currentActiveKey, setCurrentActiveKey] = useState(key);
   let navigate = useNavigate();
   const items: MenuItem[] = [
