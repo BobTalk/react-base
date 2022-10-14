@@ -40,13 +40,9 @@ const BarComp = (props) => {
   const chartRef = useRef({});
   let [dragInfo, setDragInfo] = useState([]);
   useDrop(dropRef, {
-    onText: (text, e) => {
-      console.log("拖拽了文字进来", text);
-    },
+    onText: (text, e) => {},
     onDom: (content, e) => {
-      console.log("拖拽了dom进来", content);
-      let dragInfoLen = dragInfo.length;
-      console.log("dragInfo: ", dragInfo);
+      let dragInfoLen = dragInfo.length + 1;
       let dragData = {
         label: content.label,
         id: dragInfoLen,
@@ -85,7 +81,7 @@ const BarComp = (props) => {
           {
             label: "最大值",
             id: `${dragInfoLen}-2`,
-            parentId: `${dragInfoLen}`,
+            parentId: dragInfoLen,
             isActive: false,
             visible: false,
             activeStyleObj: {
@@ -96,7 +92,7 @@ const BarComp = (props) => {
           {
             label: "最小值",
             id: `${dragInfoLen}-3`,
-            parentId: `${dragInfoLen}`,
+            parentId: dragInfoLen,
             isActive: false,
             visible: false,
             activeStyleObj: {
@@ -107,7 +103,7 @@ const BarComp = (props) => {
           {
             label: "平均值",
             id: `${dragInfoLen}-4`,
-            parentId: `${dragInfoLen}`,
+            parentId: dragInfoLen,
             isActive: false,
             visible: false,
             activeStyleObj: {
@@ -119,17 +115,11 @@ const BarComp = (props) => {
       };
       setDragInfo((dragInfo) => (dragInfo = [...dragInfo, dragData]));
     },
-    onFiles: (files, e) => {
-      console.log("拖拽了文件进来", files);
-    },
-    onUri: (uri) => {
-      console.log("拖拽了链接进来", uri);
-    },
+    onFiles: (files, e) => {},
+    onUri: (uri) => {},
     onDragEnter: () => {},
     onDragLeave: () => {},
-    onDragOver: () => {
-      console.log("拖拽中");
-    },
+    onDragOver: () => {},
   });
   return (
     <BarRootContent.Provider value={{ dragInfo }}>
@@ -142,7 +132,7 @@ const BarComp = (props) => {
           style={{ height: "500px" }}
         ></BarComponents>
 
-        <div className="inline-grid grid-cols-2 gap-[8px]">
+        <div className="inline-grid grid-cols-2 gap-[8px] mt-8px">
           <div>
             {staticDragArr.map((item) => (
               <DragItem
