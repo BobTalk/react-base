@@ -1,208 +1,123 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
 import { useDrop } from "ahooks";
 import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
-import DragItem from "../../components/drag";
-import TooltipComp from "../../components/uiComp/Tooltip";
+import DragItem from "@/components/drag";
+import BarRootContent from "./shared";
+import RenderDragItem from "./renderDragItem";
 const BarComp = (props) => {
-  const titleArr = [
+  const staticDragArr = [
     {
-      label: "高级计算",
-      id: "2",
-      parentId: null,
-      visible: false,
-      isActive: false,
-      activeStyleObj: {
-        background: "rgba(59, 130, 246, 0.5)",
-        color: "#FFF",
-      },
-      children: [
-        {
-          label: "求和",
-          id: "2-1",
-          parentId: "2",
-          isActive: false,
-          visible: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-          children: [
-            {
-              label: "数值",
-              id: "2-1-1",
-              parentId: "2-1",
-              isActive: false,
-              visible: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-          ],
-        },
-        {
-          label: "最大值",
-          id: "2-2",
-          parentId: "2",
-          isActive: false,
-          visible: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-        },
-        {
-          label: "最小值",
-          id: "2-3",
-          parentId: "2",
-          isActive: false,
-          visible: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-        },
-        {
-          label: "平均值",
-          id: "2-4",
-          parentId: "2",
-          isActive: false,
-          visible: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-        },
-      ],
+      label: "会员姓名",
+      id: 1,
     },
     {
-      label: "聚合方式",
-      id: "1",
-      parentId: null,
-      isActive: false,
-      visible: false,
-      activeStyleObj: {
-        background: "rgba(59, 130, 246, 0.5)",
-        color: "#FFF",
-      },
-      children: [
-        {
-          label: "求和",
-          id: "1-1",
-          parentId: "1",
-          visible: false,
-          isActive: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-          children: [
-            {
-              label: "数值",
-              id: "1-1-1",
-              parentId: "1-1",
-              visible: false,
-              isActive: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-          ],
-        },
-        {
-          label: "最大值",
-          id: "1-2",
-          parentId: "1",
-          visible: false,
-          isActive: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-          children: [
-            {
-              label: "String",
-              id: "1-2-1",
-              parentId: "1-2",
-              visible: false,
-              isActive: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-            {
-              label: "Number",
-              id: "1-2-2",
-              parentId: "1-2",
-              visible: false,
-              isActive: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-          ],
-        },
-        {
-          label: "最小值",
-          id: "1-3",
-          parentId: "1",
-          visible: false,
-          isActive: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-          children: [
-            {
-              label: "vue",
-              id: "1-3-1",
-              parentId: "1-3",
-              visible: false,
-              isActive: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-            {
-              label: "react",
-              id: "1-3-2",
-              parentId: "1-3",
-              visible: false,
-              isActive: false,
-              activeStyleObj: {
-                background: "rgba(59, 130, 246, 0.5)",
-                color: "#FFF",
-              },
-            },
-          ],
-        },
-        {
-          label: "平均值",
-          id: "1-4",
-          parentId: "1",
-          visible: false,
-          isActive: false,
-          activeStyleObj: {
-            background: "rgba(59, 130, 246, 0.5)",
-            color: "#FFF",
-          },
-        },
-      ],
+      label: "购买商品",
+      id: 2,
+    },
+    {
+      label: "性别",
+      id: 3,
+    },
+    {
+      label: "购买时间",
+      id: 4,
+    },
+    {
+      label: "会员生日",
+      id: 5,
+    },
+    {
+      label: "订单编号",
+      id: 6,
+    },
+    {
+      label: "购买数量",
+      id: 7,
     },
   ];
-  const [activeId, setActiveId] = useState([]);
+
   const dropRef = useRef({});
   const chartRef = useRef({});
+  let [dragInfo, setDragInfo] = useState([]);
   useDrop(dropRef, {
     onText: (text, e) => {
       console.log("拖拽了文字进来", text);
     },
     onDom: (content, e) => {
       console.log("拖拽了dom进来", content);
+      let dragInfoLen = dragInfo.length;
+      console.log("dragInfo: ", dragInfo);
+      let dragData = {
+        label: content.label,
+        id: dragInfoLen,
+        parentId: null,
+        visible: false,
+        isActive: false,
+        activeStyleObj: {
+          background: "rgba(59, 130, 246, 0.5)",
+          color: "#FFF",
+        },
+        children: [
+          {
+            label: "求和",
+            id: `${dragInfoLen}-1`,
+            parentId: dragInfoLen,
+            isActive: false,
+            visible: false,
+            activeStyleObj: {
+              background: "rgba(59, 130, 246, 0.5)",
+              color: "#FFF",
+            },
+            children: [
+              {
+                label: "数值",
+                id: `${dragInfoLen}-1-1`,
+                parentId: `${dragInfoLen}-1`,
+                isActive: false,
+                visible: false,
+                activeStyleObj: {
+                  background: "rgba(59, 130, 246, 0.5)",
+                  color: "#FFF",
+                },
+              },
+            ],
+          },
+          {
+            label: "最大值",
+            id: `${dragInfoLen}-2`,
+            parentId: `${dragInfoLen}`,
+            isActive: false,
+            visible: false,
+            activeStyleObj: {
+              background: "rgba(59, 130, 246, 0.5)",
+              color: "#FFF",
+            },
+          },
+          {
+            label: "最小值",
+            id: `${dragInfoLen}-3`,
+            parentId: `${dragInfoLen}`,
+            isActive: false,
+            visible: false,
+            activeStyleObj: {
+              background: "rgba(59, 130, 246, 0.5)",
+              color: "#FFF",
+            },
+          },
+          {
+            label: "平均值",
+            id: `${dragInfoLen}-4`,
+            parentId: `${dragInfoLen}`,
+            isActive: false,
+            visible: false,
+            activeStyleObj: {
+              background: "rgba(59, 130, 246, 0.5)",
+              color: "#FFF",
+            },
+          },
+        ],
+      };
+      setDragInfo((dragInfo) => (dragInfo = [...dragInfo, dragData]));
     },
     onFiles: (files, e) => {
       console.log("拖拽了文件进来", files);
@@ -217,41 +132,36 @@ const BarComp = (props) => {
     },
   });
   return (
-    <>
+    <BarRootContent.Provider value={{ dragInfo }}>
       <div
         className="w-full grid gap-[8px]"
-        style={{ gridTemplateColumns: "calc(100% - 308px) 300px" }}
+        style={{ gridTemplateColumns: "calc(100% - 378px) 370px" }}
       >
         <BarComponents
           ref={chartRef}
           style={{ height: "500px" }}
         ></BarComponents>
 
-        {/* <TooltipComp
-          data={titleArr}
-          active={activeId}
-          onClick={(params, activeBtnId) => {
-            setActiveId((activeId) => (activeId = activeBtnId));
-          }}
-        ></TooltipComp> */}
         <div className="inline-grid grid-cols-2 gap-[8px]">
-          <div></div>
-          <div style={{ width: "80%", margin: "0 auto" }}>
-            <div className="border min-h-[100px]"></div>
+          <div>
+            {staticDragArr.map((item) => (
+              <DragItem
+                key={item.id}
+                data={item}
+                renderItem={(data) => {
+                  return <p style={{ textAlign: "center" }}>{data.label}</p>;
+                }}
+              ></DragItem>
+            ))}
+          </div>
+          <div ref={dropRef} style={{ width: "80%", margin: "0 auto" }}>
+            <div className="border min-h-[100px]">
+              <RenderDragItem></RenderDragItem>
+            </div>
           </div>
         </div>
       </div>
-      {/* <DragItem
-        data={{ data: "数据有拖动" }}
-        renderItem={(data) => {
-          return <p>{data.data}</p>;
-        }}
-      ></DragItem>
-      <div
-        ref={dropRef}
-        style={{ width: "200px", height: "100px", border: "1px solid blue" }}
-      ></div> */}
-    </>
+    </BarRootContent.Provider>
   );
 };
 export default memo(BarComp, (prv, next) => {
