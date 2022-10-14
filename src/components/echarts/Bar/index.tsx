@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 10:34:22
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 15:56:32
+ * @LastEditTime: 2022-10-14 16:12:22
  * @FilePath: /react-base/src/components/echarts/Bar/index.tsx
  * @Description: 柱子组件
  */

@@ -196,6 +196,7 @@ const BarComp = (props) => {
   ];
   const [activeId, setActiveId] = useState([]);
   const dropRef = useRef({});
+  const chartRef = useRef({});
   useDrop(dropRef, {
     onText: (text, e) => {
       console.log("拖拽了文字进来", text);
@@ -221,9 +222,11 @@ const BarComp = (props) => {
         className="w-full grid gap-[8px]"
         style={{ gridTemplateColumns: "calc(100% - 308px) 300px" }}
       >
-        <div>
-          <BarComponents style={{ height: "500px" }}></BarComponents>
-        </div>
+        <BarComponents
+          ref={chartRef}
+          style={{ height: "500px" }}
+        ></BarComponents>
+
         {/* <TooltipComp
           data={titleArr}
           active={activeId}
