@@ -2,13 +2,14 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 10:34:22
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 10:10:01
+ * @LastEditTime: 2022-10-14 15:56:32
  * @FilePath: /react-base/src/components/echarts/Bar/index.tsx
  * @Description: 柱子组件
  */
 import { forwardRef, useEffect, memo, useRef, useState } from "react";
 import * as ECharts from "echarts/core";
 import { options } from "./config";
+import mergeClass from "classnames";
 import { BarChart } from "echarts/charts";
 import {
   TitleComponent,
@@ -57,13 +58,20 @@ const BarComponents = forwardRef((props, ref) => {
       chartInstance && chartInstance.dispose();
     };
   }, [options]);
-  return <div ref={BarRef} className="relative" style={props.style}></div>;
+  return (
+    <div
+      ref={BarRef}
+      className={mergeClass("relative", props.className)}
+      style={props.style}
+    ></div>
+  );
 });
 BarComponents.defaultProps = {
   style: {
     height: "min(500px)",
     width: "100%",
   },
+  className: "",
 };
 export default memo(BarComponents, (prv, next) => {
   return prv == next;

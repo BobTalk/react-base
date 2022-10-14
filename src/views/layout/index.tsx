@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2022-10-14 11:17:43
+ * @LastEditTime: 2022-10-14 15:50:12
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
@@ -16,13 +16,20 @@ function ProjectLayout() {
         <Layout.Header>
           <span className="text-white">Header</span>
         </Layout.Header>
-        <Layout>
-          <Layout.Sider className="overflow-y-auto">
-            <SideComp></SideComp>
+        <Layout
+          className="overflow-hidden"
+          style={{ height: "calc(100vh - 130px)" }}
+        >
+          <Layout.Sider>
+            <div className="h-full overflow-y-auto">
+              <SideComp></SideComp>
+            </div>
           </Layout.Sider>
           <Layout>
-            <Layout.Content className="overflow-y-auto">
-              <Outlet></Outlet>
+            <Layout.Content>
+              <div className="h-full overflow-y-auto">
+                <Outlet></Outlet>
+              </div>
             </Layout.Content>
             <Layout.Footer>
               <span className="text-white">Footer</span>

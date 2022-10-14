@@ -1,6 +1,6 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
 import { useDrop } from "ahooks";
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
 import DragItem from "../../components/drag";
 import TooltipComp from "../../components/uiComp/Tooltip";
 const BarComp = (props) => {
@@ -195,7 +195,7 @@ const BarComp = (props) => {
     },
   ];
   const [activeId, setActiveId] = useState([]);
-  const dropRef = useRef();
+  const dropRef = useRef({});
   useDrop(dropRef, {
     onText: (text, e) => {
       console.log("拖拽了文字进来", text);
@@ -217,17 +217,28 @@ const BarComp = (props) => {
   });
   return (
     <>
-      <div className="flex">
-        <BarComponents></BarComponents>
-        <TooltipComp
+      <div
+        className="w-full grid gap-[8px]"
+        style={{ gridTemplateColumns: "calc(100% - 308px) 300px" }}
+      >
+        <div>
+          <BarComponents style={{ height: "500px" }}></BarComponents>
+        </div>
+        {/* <TooltipComp
           data={titleArr}
           active={activeId}
           onClick={(params, activeBtnId) => {
             setActiveId((activeId) => (activeId = activeBtnId));
           }}
-        ></TooltipComp>
+        ></TooltipComp> */}
+        <div className="inline-grid grid-cols-2 gap-[8px]">
+          <div></div>
+          <div style={{ width: "80%", margin: "0 auto" }}>
+            <div className="border min-h-[100px]"></div>
+          </div>
+        </div>
       </div>
-      <DragItem
+      {/* <DragItem
         data={{ data: "数据有拖动" }}
         renderItem={(data) => {
           return <p>{data.data}</p>;
@@ -236,7 +247,7 @@ const BarComp = (props) => {
       <div
         ref={dropRef}
         style={{ width: "200px", height: "100px", border: "1px solid blue" }}
-      ></div>
+      ></div> */}
     </>
   );
 };

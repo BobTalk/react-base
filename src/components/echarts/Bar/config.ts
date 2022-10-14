@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 10:34:45
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-12 10:49:07
+ * @LastEditTime: 2022-10-14 14:43:19
  * @FilePath: /react-base/src/components/echarts/Bar/config.ts
  * @Description: 柱子配置
  */
@@ -13,6 +13,11 @@ const options = {
     },
     yAxis: {
         type: 'value'
+    },
+    grid: {
+        right: 0,
+        left: 0,
+        contain: true
     },
     series: [
         {
