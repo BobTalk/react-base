@@ -1,4 +1,5 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
+import { useState } from "react";
 import TooltipComp from "../../components/uiComp/Tooltip";
 const BarComp = (props) => {
   const titleArr = [
@@ -8,6 +9,10 @@ const BarComp = (props) => {
       parentId: null,
       visible: false,
       isActive: false,
+      activeStyleObj: {
+        background: "rgba(59, 130, 246, 0.5)",
+        color: "#FFF",
+      },
       children: [
         {
           label: "求和",
@@ -15,6 +20,10 @@ const BarComp = (props) => {
           parentId: "2",
           isActive: false,
           visible: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
           children: [
             {
               label: "数值",
@@ -22,6 +31,10 @@ const BarComp = (props) => {
               parentId: "2-1",
               isActive: false,
               visible: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
           ],
         },
@@ -31,6 +44,10 @@ const BarComp = (props) => {
           parentId: "2",
           isActive: false,
           visible: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
         },
         {
           label: "最小值",
@@ -38,6 +55,10 @@ const BarComp = (props) => {
           parentId: "2",
           isActive: false,
           visible: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
         },
         {
           label: "平均值",
@@ -45,6 +66,10 @@ const BarComp = (props) => {
           parentId: "2",
           isActive: false,
           visible: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
         },
       ],
     },
@@ -54,6 +79,10 @@ const BarComp = (props) => {
       parentId: null,
       isActive: false,
       visible: false,
+      activeStyleObj: {
+        background: "rgba(59, 130, 246, 0.5)",
+        color: "#FFF",
+      },
       children: [
         {
           label: "求和",
@@ -61,6 +90,10 @@ const BarComp = (props) => {
           parentId: "1",
           visible: false,
           isActive: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
           children: [
             {
               label: "数值",
@@ -68,6 +101,10 @@ const BarComp = (props) => {
               parentId: "1-1",
               visible: false,
               isActive: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
           ],
         },
@@ -77,6 +114,10 @@ const BarComp = (props) => {
           parentId: "1",
           visible: false,
           isActive: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
           children: [
             {
               label: "String",
@@ -84,6 +125,10 @@ const BarComp = (props) => {
               parentId: "1-2",
               visible: false,
               isActive: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
             {
               label: "Number",
@@ -91,6 +136,10 @@ const BarComp = (props) => {
               parentId: "1-2",
               visible: false,
               isActive: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
           ],
         },
@@ -100,6 +149,10 @@ const BarComp = (props) => {
           parentId: "1",
           visible: false,
           isActive: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
           children: [
             {
               label: "vue",
@@ -107,6 +160,10 @@ const BarComp = (props) => {
               parentId: "1-3",
               visible: false,
               isActive: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
             {
               label: "react",
@@ -114,6 +171,10 @@ const BarComp = (props) => {
               parentId: "1-3",
               visible: false,
               isActive: false,
+              activeStyleObj: {
+                background: "rgba(59, 130, 246, 0.5)",
+                color: "#FFF",
+              },
             },
           ],
         },
@@ -123,15 +184,25 @@ const BarComp = (props) => {
           parentId: "1",
           visible: false,
           isActive: false,
+          activeStyleObj: {
+            background: "rgba(59, 130, 246, 0.5)",
+            color: "#FFF",
+          },
         },
       ],
     },
   ];
-
+  const [activeId, setActiveId] = useState([]);
   return (
     <div className="flex">
       <BarComponents></BarComponents>
-      <TooltipComp data={titleArr}></TooltipComp>
+      <TooltipComp
+        data={titleArr}
+        active={activeId}
+        onClick={(params, activeBtnId) => {
+          setActiveId((activeId) => (activeId = activeBtnId));
+        }}
+      ></TooltipComp>
     </div>
   );
 };
