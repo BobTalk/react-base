@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2022-10-14 10:21:07
+ * @LastEditTime: 2022-10-14 11:17:43
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
@@ -21,7 +21,7 @@ function ProjectLayout() {
             <SideComp></SideComp>
           </Layout.Sider>
           <Layout>
-            <Layout.Content>
+            <Layout.Content className="overflow-y-auto">
               <Outlet></Outlet>
             </Layout.Content>
             <Layout.Footer>

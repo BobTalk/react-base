@@ -1,5 +1,7 @@
 import BarComponents from "@/components/echarts/Bar/index.tsx";
-import { useState } from "react";
+import { useDrop } from "ahooks";
+import { memo, useRef, useState } from "react";
+import DragItem from "../../components/drag";
 import TooltipComp from "../../components/uiComp/Tooltip";
 const BarComp = (props) => {
   const titleArr = [
@@ -193,17 +195,51 @@ const BarComp = (props) => {
     },
   ];
   const [activeId, setActiveId] = useState([]);
+  const dropRef = useRef();
+  useDrop(dropRef, {
+    onText: (text, e) => {
+      console.log("拖拽了文字进来", text);
+    },
+    onDom: (content, e) => {
+      console.log("拖拽了dom进来", content);
+    },
+    onFiles: (files, e) => {
+      console.log("拖拽了文件进来", files);
+    },
+    onUri: (uri) => {
+      console.log("拖拽了链接进来", uri);
+    },
+    onDragEnter: () => {},
+    onDragLeave: () => {},
+    onDragOver: () => {
+      console.log("拖拽中");
+    },
+  });
   return (
-    <div className="flex">
-      <BarComponents></BarComponents>
-      <TooltipComp
-        data={titleArr}
-        active={activeId}
-        onClick={(params, activeBtnId) => {
-          setActiveId((activeId) => (activeId = activeBtnId));
+    <>
+      <div className="flex">
+        <BarComponents></BarComponents>
+        <TooltipComp
+          data={titleArr}
+          active={activeId}
+          onClick={(params, activeBtnId) => {
+            setActiveId((activeId) => (activeId = activeBtnId));
+          }}
+        ></TooltipComp>
+      </div>
+      <DragItem
+        data={{ data: "数据有拖动" }}
+        renderItem={(data) => {
+          return <p>{data.data}</p>;
         }}
-      ></TooltipComp>
-    </div>
+      ></DragItem>
+      <div
+        ref={dropRef}
+        style={{ width: "200px", height: "100px", border: "1px solid blue" }}
+      ></div>
+    </>
   );
 };
-export default BarComp;
+export default memo(BarComp, (prv, next) => {
+  return prv == next;
+});

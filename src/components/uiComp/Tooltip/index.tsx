@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 14:44:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 10:02:46
+ * @LastEditTime: 2022-10-14 14:00:44
  * @FilePath: /react-base/src/components/uiComp/Tooltip/index.tsx
  * @Description: tooltip组件
  */
@@ -62,9 +62,8 @@ const TooltipComp = (props) => {
     return parentArray;
   };
   // 最后一个节点点击事件
-  const nodeClickCb = (currentNode) => {
+  const nodeClickCb = (currentNode, isGlobal = false) => {
     let allParentArr = findParents(tooltipArr, currentNode.parentId, true);
-
     let activeArr = props.active.includes(currentNode.id)
       ? []
       : [...allParentArr.map((item) => item.id), currentNode.id];
@@ -72,14 +71,14 @@ const TooltipComp = (props) => {
       item.visible = false;
     }, tooltipArr);
     // 把节点点击事件抛出去
-    props?.onClick?.(currentNode, activeArr);
+    !isGlobal && props?.onClick?.(currentNode, activeArr);
     setRefresh({});
   };
 
   useEffect(() => {
     const exc = function (e) {
       if (!TooltipBoxRef.current.contains(e.target)) {
-        nodeClickCb({});
+        nodeClickCb({}, true);
       }
     };
     window.addEventListener("click", exc);
