@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2022-05-04 19:48:17
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-10-14 10:21:07
+ * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
  */
@@ -12,12 +12,12 @@ import SideComp from "./sider";
 function ProjectLayout() {
   return (
     <>
-      <Layout className='h-full'>
+      <Layout className="h-full">
         <Layout.Header>
-          <span className='text-white'>Header</span>
+          <span className="text-white">Header</span>
         </Layout.Header>
         <Layout>
-          <Layout.Sider>
+          <Layout.Sider className="overflow-y-auto">
             <SideComp></SideComp>
           </Layout.Sider>
           <Layout>
@@ -25,7 +25,7 @@ function ProjectLayout() {
               <Outlet></Outlet>
             </Layout.Content>
             <Layout.Footer>
-            <span className='text-white'>Footer</span>
+              <span className="text-white">Footer</span>
             </Layout.Footer>
           </Layout>
         </Layout>
