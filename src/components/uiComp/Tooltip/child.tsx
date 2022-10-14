@@ -2,12 +2,13 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 15:38:26
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 09:56:26
+ * @LastEditTime: 2022-10-14 17:24:24
  * @FilePath: /react-base/src/components/uiComp/Tooltip/child.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import { Button, Tooltip } from "antd";
 import { memo, useState, useEffect } from "react";
+import { getDataType } from "../../../utils";
 const RecursionComp = (props) => {
   let { tooltipArr, visible } = props;
   return tooltipArr.map((item, index) => {
@@ -51,18 +52,39 @@ const RecursionComp = (props) => {
         }
       >
         <div className={index ? "mt-[8px]" : ""}>
-          <Button
-            data-active={props.active?.join(",")}
-            style={props.active?.includes(item.id) ? item?.activeStyleObj : {}}
-            className="w-full"
-            onClick={(e) => {
-              item.children && item.children.length
-                ? props.onOpenChange(!visible, item)
-                : props.nodeClick(item);
-            }}
-          >
-            {item.label}
-          </Button>
+          {props.children ? (
+            <div
+              data-active={props.active?.join(",")}
+              style={
+                props.active?.includes(item.id) ? item?.activeStyleObj : {}
+              }
+              className="w-full"
+              onClick={(e) => {
+                item.children && item.children.length
+                  ? props.onOpenChange(!visible, item)
+                  : props.nodeClick(item);
+              }}
+            >
+              {props.children}
+            </div>
+          ) : getDataType(props.renderChild) == "function" ? (
+            props.renderChild(item)
+          ) : (
+            <Button
+              data-active={props.active?.join(",")}
+              style={
+                props.active?.includes(item.id) ? item?.activeStyleObj : {}
+              }
+              className="w-full"
+              onClick={(e) => {
+                item.children && item.children.length
+                  ? props.onOpenChange(!visible, item)
+                  : props.nodeClick(item);
+              }}
+            >
+              {item.label}
+            </Button>
+          )}
         </div>
       </Tooltip>
     );

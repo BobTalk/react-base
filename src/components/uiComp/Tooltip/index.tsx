@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 14:44:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 14:00:44
+ * @LastEditTime: 2022-10-14 17:20:14
  * @FilePath: /react-base/src/components/uiComp/Tooltip/index.tsx
  * @Description: tooltip组件
  */
@@ -105,10 +105,13 @@ const TooltipComp = (props) => {
         placement={props.placement}
         trigger={props.trigger}
         zIndex={props.zIndex}
+        renderChild={props.renderChild}
         onOpenChange={tooltipChangeCb}
         tooltipArr={tooltipArr}
         arrowPointAtCenter={props.arrowPointAtCenter}
-      ></RecursionComp>
+      >
+        {props.children}
+      </RecursionComp>
     </div>
   );
 };
