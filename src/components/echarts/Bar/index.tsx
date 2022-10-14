@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 10:34:22
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-12 11:24:19
+ * @LastEditTime: 2022-10-14 10:10:01
  * @FilePath: /react-base/src/components/echarts/Bar/index.tsx
  * @Description: 柱子组件
  */
@@ -48,7 +48,6 @@ const BarComponents = forwardRef((props, ref) => {
     chartInstance.resize();
     chartInstance.off("click");
     chartInstance.on("click", (params) => {
-      console.log("params: ", params);
       props?.onClick?.({ clickInfo: params, allProps: props });
     });
   };
