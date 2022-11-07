@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-06 11:55:08
- * @LastEditTime: 2022-05-08 15:25:45
+ * @LastEditTime: 2022-11-07 10:47:34
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: useMemo 具有缓存作用  <值>
  * @FilePath: /react-demo/src/views/useMemo/index.tsx
@@ -21,15 +21,13 @@ const memoComp = forwardRef((props, ref) => {
   let [inputVal, setInputVal] = useState("");
   let [fruit, setFruit] = useState(["apple", "pear", "banana"]);
   let memoFruit = useMemo(() => {
-    console.log(fruit);
     return [...fruit, "Origin"];
   }, [fruit]);
   useEffect(() => {
-    console.log("effect: ", memoFruit);
   }, [memoFruit]);
   return (
     <>
-      input:
+      input: {addping}
       <Input
         placeholder="请输入"
         defaultValue={inputVal}
