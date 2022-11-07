@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-06 11:55:08
- * @LastEditTime: 2022-11-07 10:47:34
+ * @LastEditTime: 2022-11-07 13:54:34
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: useMemo 具有缓存作用  <值>
  * @FilePath: /react-demo/src/views/useMemo/index.tsx
@@ -27,7 +27,7 @@ const memoComp = forwardRef((props, ref) => {
   }, [memoFruit]);
   return (
     <>
-      input: {addping}
+      input:
       <Input
         placeholder="请输入"
         defaultValue={inputVal}
@@ -42,7 +42,7 @@ const memoComp = forwardRef((props, ref) => {
       {/* {fruit.map((item, index) => (
         <p key={item.toString(10) + index}>{item}</p>
       ))} */}
-      <RenderItemComp fruit={ fruit}></RenderItemComp>
+      <RenderItemComp fruit={fruit}></RenderItemComp>
     </>
   );
 });
