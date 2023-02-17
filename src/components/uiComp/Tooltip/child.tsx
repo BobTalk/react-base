@@ -2,9 +2,9 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 15:38:26
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2022-10-14 17:55:34
+ * @LastEditTime: 2023-02-17 17:47:19
  * @FilePath: /react-base/src/components/uiComp/Tooltip/child.tsx
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 每一项
  */
 import { Button, Tooltip } from "antd";
 import { memo, useState, useEffect } from "react";
