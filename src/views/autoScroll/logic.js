@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-17 18:09:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-17 18:12:32
+ * @LastEditTime: 2023-02-17 18:28:11
  * @FilePath: /react-base/src/views/autoScroll/logic.tsx
  * @Description: 列表自动往上滚动逻辑
  */
@@ -40,7 +40,8 @@ function logic(props, options) {
         warper,
         childDom1,
         list,
-        childDom2
+        childDom2,
+        hoverHandler
     }
 }
 

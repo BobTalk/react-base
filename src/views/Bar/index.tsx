@@ -35,7 +35,6 @@ const BarComp = (props) => {
       id: 7,
     },
   ];
-
   const dropRef = useRef({});
   const chartRef = useRef({});
   let [dragInfo, setDragInfo] = useState([]);
