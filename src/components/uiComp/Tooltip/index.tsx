@@ -2,14 +2,14 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-12 14:44:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-17 17:54:19
+ * @LastEditTime: 2023-02-20 09:44:23
  * @FilePath: /react-base/src/components/uiComp/Tooltip/index.tsx
  * @Description: tooltip组件
  */
 
 import RecursionComp from "./child";
 import { memo } from "react";
-import logic from "./logic.tsx";
+import logic from "./logic.js";
 const TooltipComp = (props) => {
   let {
     nodeClickCb,
