@@ -2,22 +2,19 @@
 /*
 * @Author: your name
 * @Date: 2022-05-05 10:18:18
- * @LastEditTime: 2022-05-05 19:38:32
- * @LastEditors: Please set LastEditors
-* @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @LastEditTime: 2023-02-20 10:14:37
+ * @LastEditors: heyongqiang 1498833800@qq.com
+* @Description: 
 * @FilePath: /react-demo/src/views/useEffect/default.tsx
 */
-import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
-const EffectDefault = forwardRef((props, ref) => { 
-    useImperativeHandle(ref, () => ({}))
-    const [checked, setChecked] = useState(false)
-    useEffect(() => {
-        alert(`useEffect -> checked: ${checked.toString()}`)
-    })
+import logic from "./default-logic.js";
+import { forwardRef } from "react";
+const EffectDefault = forwardRef((props, ref) => {
+    let { checked, setChecked } = logic(props, { ref })
     return <>
         <input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />
-        {checked ? 'checked': 'not checked'}
-        </>
+        {checked ? 'checked' : 'not checked'}
+    </>
 })
 
 export default EffectDefault

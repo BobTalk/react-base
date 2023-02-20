@@ -1,31 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2022-05-05 10:18:58
- * @LastEditTime: 2022-07-01 16:20:04
+ * @LastEditTime: 2023-02-20 10:06:07
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 销毁作用域
  * @FilePath: /react-demo/src/views/useEffect/destroy.tsx
  */
-import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
-import unmount from "./component/unmount";
-import mount from "./component/mount";
+import { forwardRef } from "react";
+import destroy from "./destroy-logic.js";
 const EffectDestroy = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => ({}));
-  const [count, setCount] = useState(0);
-  // 初始化时即会执行清除机制
-  // useEffect(() => {
-  //   console.log("哈哈哈，useEffect 又执行了");
-  //   return () => {
-  //     console.log("看到我就知道执行了清除机制(～￣▽￣)～");
-  //   };
-  // }, [count]);
-  mount(() => {
-    if (!count) return;
-    console.log("哈哈哈，useEffect 又执行了");
-  }, [count]);
-  unmount(() => {
-    console.log("看到我就知道执行了清除机制(～￣▽￣)～");
-  }, [count]);
+  let {
+    count,
+    setCount
+  } = destroy(props, { ref })
   return (
     <div>
       <p>那啥，你点了我 {count} 次 ????????</p>

@@ -1,22 +1,22 @@
 /*
  * @Author: your name
  * @Date: 2022-05-05 10:18:47
- * @LastEditTime: 2022-05-06 11:12:51
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-02-20 10:30:17
+ * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: effect监听数组
  * @FilePath: /react-demo/src/views/useEffect/array.tsx
  */
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import { Input } from "antd";
 import { debounce } from "lodash";
+import logic from "./array-logic.js";
 const EffectArray = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => ({}));
-  let [name, setName] = useState("");
-  let [age, setAge] = useState(18);
-  // 第一次会执行两次
-  useEffect(() => {
-    console.log("change");
-  }, [name, age]);
+  let {
+    name,
+    age,
+    setName,
+    setAge
+  } = logic(props, { ref })
   return (
     <>
       <Input
