@@ -1,17 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 17:35:22
- * @LastEditTime: 2022-05-04 17:38:57
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-02-20 13:41:38
+ * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 上下文
  * @FilePath: /react-demo/src/views/content/index.tsx
  */
 import React, { useState, createContext, useContext } from "react";
-import { Outlet } from "react-router-dom";
 import ChildComp from "./child";
-const ColorContext = createContext({});
-export default function ContentProvide() {
-  let [colorArr, setColorArr] = useState([
+import { createContext2, getContext2 } from "@/components/context";
+
+let ColorContext = createContext2({
+  childColor: ["blue", "yellow"],
+  parentColor: [
     "#50e3c2",
     "#05a9f5",
     "#f2a821",
@@ -22,13 +23,18 @@ export default function ContentProvide() {
     "#ebbe16",
     "#55b2f1",
     "#3a95ec",
-  ]);
+  ]
+})
+export default function ContentProvide() {
   return (
-    <>
-      <ColorContext.Provider value={{ $color: colorArr }}>
-        <ChildComp></ChildComp>
-      </ColorContext.Provider>
-    </>
+    <ColorContext.Provider value={{
+      ...ColorContext['_currentValue']
+    }}>
+      <ColorContext.Consumer>
+        {
+          (val) => <ChildComp  {...val} />
+        }
+      </ColorContext.Consumer>
+    </ColorContext.Provider>
   );
 }
-export const ColorContextProvider = () => useContext(ColorContext);

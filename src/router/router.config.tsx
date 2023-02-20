@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2022-10-12 10:58:04
+ * @LastEditTime: 2023-02-20 11:02:44
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -41,7 +41,7 @@ const routeList = [
       },
       {
         path: "colorChild",
-        component: ContentChildComp,
+        component: ContentComp, //ContentChildComp,
       },
       {
         path: "contextIndex",
