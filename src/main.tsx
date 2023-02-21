@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:08:57
- * @LastEditTime: 2022-11-22 14:08:10
+ * @LastEditTime: 2023-02-21 16:06:46
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 系统入口文件
  * @FilePath: /react-demo/src/main.tsx
@@ -18,16 +18,16 @@ import ErrorBoundaryPage from "./components/catchError";
 // 如果项目部署在服务器域名子目录下，就给BrowserRouter配置basename属性。
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ErrorBoundaryPage fallback={<div>渲染出错啦！</div>}>
-    <React.StrictMode>
-      <BrowserRouter basename="/">
-        <Routes>
-          <Route
-            path="/"
-            element={<Navigate to={"/layout/contextIndex/colorChild"}></Navigate>}
-          ></Route>
-          {withRoute(routeList)}
-        </Routes>
-      </BrowserRouter>
-    </React.StrictMode>
+    {/* <React.StrictMode> */}
+    <BrowserRouter basename="/">
+      <Routes>
+        <Route
+          path="/"
+          element={<Navigate to={"/layout/contextIndex/colorChild"}></Navigate>}
+        ></Route>
+        {withRoute(routeList)}
+      </Routes>
+    </BrowserRouter>
+    {/* </React.StrictMode> */}
   </ErrorBoundaryPage>
 );
