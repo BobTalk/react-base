@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 10:11:15
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-21 16:55:41
+ * @LastEditTime: 2023-02-21 17:07:40
  * @FilePath: /react-base/src/views/demo/page/layout/canvas.tsx
  * @Description:画布
  */
@@ -20,8 +20,12 @@ const CanvasPage = (props) => {
                 <p className="title">drag me</p>
                 <span>第一个盒子</span>
             </DragBox>
-            <DragBox options={{ x: 120, y: 100 }} >
-                <span>第二个盒子</span>
+            <DragBox options={{
+                x: 120,
+                y: 100,
+                handle: '.content'
+            }} >
+                <span className="content">第二个盒子</span>
             </DragBox>
         </div >)
 }
