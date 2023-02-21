@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2023-02-20 11:02:44
+ * @LastEditTime: 2023-02-21 09:37:44
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -30,11 +30,16 @@ import InsertChildNode from "@/views/insertChildNode/index";
 import syncExternalStore from "@/views/useSyncExternalStore";
 import transitionComp from "@/views/useTransition";
 import BarComp from "@/views/Bar/index";
+import DemoProject from "@/views/demo/index";
 const routeList = [
   {
     path: "/layout",
     component: ProjectLayout,
     children: [
+      {
+        path: 'project',
+        component: DemoProject
+      },
       {
         path: 'bar',
         component: BarComp
