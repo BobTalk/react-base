@@ -2,9 +2,9 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-18 18:40:27
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-01-09 12:50:03
+ * @LastEditTime: 2023-02-22 09:58:10
  * @FilePath: /fe-cig-dvp-report/src/components/report/IconComp/copy.tsx
- * @Description: 漏斗icon
+ * @Description: 仪表盘
  */
 import Icon from "@ant-design/icons";
 const YiBiaoPanComp = (props) => {
