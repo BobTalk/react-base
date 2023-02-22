@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-14 09:45:01
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-17 18:02:28
+ * @LastEditTime: 2023-02-22 11:43:45
  * @FilePath: /react-drag/vite.config.ts
  * @Description: vite配置文件
  */
@@ -25,7 +25,7 @@ const configInfo = ({ command, mode, ssrBuild }) => {
   return ({
     root: process.cwd(),
     base: '/',
-    publicDir: false, // public  false不使用此功能
+    publicDir: urlJoin('/public'), // public  false不使用此功能
     plugins: [
       react(),
       // 页面注入

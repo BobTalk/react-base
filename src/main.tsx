@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:08:57
- * @LastEditTime: 2023-02-21 16:06:46
+ * @LastEditTime: 2023-02-22 11:09:44
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 系统入口文件
  * @FilePath: /react-demo/src/main.tsx
@@ -9,7 +9,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./config/tailwind.css";
-import "./assets/styles/reset.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import routeList from "@/router/router.config.tsx";
 import { withRoute } from "@/router/format-router.tsx";
