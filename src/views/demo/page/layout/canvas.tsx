@@ -2,15 +2,17 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 10:11:15
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-21 17:07:40
+ * @LastEditTime: 2023-02-22 12:00:15
  * @FilePath: /react-base/src/views/demo/page/layout/canvas.tsx
  * @Description:画布
  */
 import logic from "./canvas-logic.js";
 import DragBox from "./drag-box.tsx";
+import mergeClassName from "classnames";
 const CanvasPage = (props) => {
+    let { className, style } = props;
     return (
-        <div className="w-full h-full relative">
+        <div style={style} className={mergeClassName("w-full h-full relative", className)}>
             {/* 拖拽盒子父级 需要 relative/absolute */}
             <DragBox options={{
                 x: 20,
