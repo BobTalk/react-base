@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2023-02-23 15:47:32
+ * @LastEditTime: 2023-02-23 15:56:46
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
@@ -40,15 +40,24 @@ function ProjectLayout() {
   return (
     <>
       <Layout className={"h-full", theme}>
-        <Layout.Header>
-          <span className="text-white">Header</span>
+        <Layout.Header style={{
+          background: 'var(--bg)',
+          color: 'var(--color-9)'
+        }}>
+          <span>Header</span>
         </Layout.Header>
         <Layout
           className={mergeClassName("overflow-hidden", scopeStyle['content-box'])}
         >
-          <Layout.Sider>
+          <Layout.Sider style={{
+            background: 'var(--bg)',
+            color: 'var(--color-9)'
+          }}>
             <div className="h-full overflow-y-auto">
-              <SideComp></SideComp>
+              <SideComp style={{
+                background: 'var(--transparent)',
+                color: 'var(--color-9)'
+              }}></SideComp>
             </div>
           </Layout.Sider>
           <Layout style={{ width: `calc(100vw - ${pxToRem('200px')})` }}>
@@ -57,7 +66,10 @@ function ProjectLayout() {
                 <Outlet></Outlet>
               </div>
             </Layout.Content>
-            <Layout.Footer>
+            <Layout.Footer style={{
+              background: 'var(--bg)',
+              color: 'var(--color-9)'
+            }}>
               <span>Footer</span>
             </Layout.Footer>
           </Layout>

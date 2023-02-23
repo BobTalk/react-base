@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2023-02-21 09:41:15
+ * @LastEditTime: 2023-02-23 16:00:45
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -157,13 +157,18 @@ const SideComp = forwardRef((props, ref) => {
   };
   return (
     <Menu
+      style={props.style}
+      className={props.className}
       onClick={menuItemClick}
       mode="inline"
-      className={props.className}
       selectedKeys={[currentActiveKey]}
       theme="dark"
       items={items}
     />
   );
 });
+SideComp.defaultProps = {
+  style: {},
+  className: {}
+}
 export default SideComp;
