@@ -1,4 +1,6 @@
 :root .dark {
-  --bg: #000;
+  --screen-width: 2554px;
+  --bg: #000000;
+  --color-9: #999;
   --color: #fff;
 }

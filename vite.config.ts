@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-14 09:45:01
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-22 11:43:45
+ * @LastEditTime: 2023-02-23 10:37:43
  * @FilePath: /react-drag/vite.config.ts
  * @Description: vite配置文件
  */
@@ -56,6 +56,7 @@ const configInfo = ({ command, mode, ssrBuild }) => {
     css: {
       preprocessorOptions: {
         less: {
+          additionalData: `@import 'public/javascript/fn.less';`,
           javascriptEnabled: true,
           modifyVars: themeVariables,
         },

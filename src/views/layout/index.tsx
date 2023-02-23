@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2023-02-22 11:46:56
+ * @LastEditTime: 2023-02-23 09:46:42
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
@@ -10,8 +10,10 @@ import { Layout } from "antd";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import SideComp from "./sider";
+import mergeClassName from "classnames";
+import scopeStyle from "./index.module.less";
 function ProjectLayout() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
   useEffect(() => {
     addLinkStyle()
     return () => {
@@ -41,8 +43,7 @@ function ProjectLayout() {
           <span className="text-white">Header</span>
         </Layout.Header>
         <Layout
-          className="overflow-hidden"
-          style={{ height: "calc(100vh - 60px)" }}
+          className={mergeClassName("overflow-hidden", scopeStyle['content-box'])}
         >
           <Layout.Sider>
             <div className="h-full overflow-y-auto">
