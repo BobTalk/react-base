@@ -6,11 +6,11 @@ import ConfigPage from "./config.tsx";
 import jsInStyle from 'styled-components'
 import { pxToRem } from "../../../../utils";
 const MComp = jsInStyle.main`
-    grid-template-columns:${() => 'auto ' + pxToRem(360)};
+    grid-template-columns:${(props) => 'auto ' + pxToRem(props.height)};
     column-gap: ${() => pxToRem('10px')};
 `
 const LayoutPage = (props) => {
-    return (<MComp className={mergeClass('grid h-full', 'overflow-hidden')}>
+    return (<MComp height="360px" className={mergeClass('grid h-full', 'overflow-hidden')}>
         <div className='overflow-auto'>
             <CanvasPage  {...props} />
         </div>

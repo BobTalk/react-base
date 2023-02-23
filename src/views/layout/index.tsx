@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 17:57:43
- * @LastEditTime: 2023-02-23 09:46:42
+ * @LastEditTime: 2023-02-23 15:47:32
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:项目整体布局
  * @FilePath: /react-demo/src/views/content/layout/index.tsx
@@ -12,6 +12,7 @@ import { Outlet } from "react-router-dom";
 import SideComp from "./sider";
 import mergeClassName from "classnames";
 import scopeStyle from "./index.module.less";
+import { pxToRem } from "../../utils";
 function ProjectLayout() {
   const [theme, setTheme] = useState('dark')
   useEffect(() => {
@@ -50,7 +51,7 @@ function ProjectLayout() {
               <SideComp></SideComp>
             </div>
           </Layout.Sider>
-          <Layout style={{ width: "calc(100vw - 200px)" }}>
+          <Layout style={{ width: `calc(100vw - ${pxToRem('200px')})` }}>
             <Layout.Content>
               <div className="h-full overflow-y-auto">
                 <Outlet></Outlet>
