@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 17:56:35
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-22 10:46:55
+ * @LastEditTime: 2023-02-23 16:45:34
  * @FilePath: /react-base/src/views/demo/page/icon/index.tsx
  * @Description: 遍历图表配置
  */
@@ -12,7 +12,7 @@ const IconRender = (props) => {
     let allChartKeys = Object.keys(iconCompList)
     return (<>
         {
-            allChartKeys.map((itemKeys) => (<ItemIconComp key={itemKeys} options={iconCompList[itemKeys]} />))
+            allChartKeys.map((itemKeys) => (<ItemIconComp key={itemKeys} {...props} options={iconCompList[itemKeys]} />))
         }
     </>)
 }
