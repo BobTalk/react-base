@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 10:11:15
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-24 10:16:44
+ * @LastEditTime: 2023-02-24 10:30:36
  * @FilePath: /react-base/src/views/demo/page/layout/canvas.tsx
  * @Description:画布
  */
@@ -30,7 +30,7 @@ const CanvasPage = (props) => {
     return (
         <div
             style={style}
-            className={mergeClassName("w-full h-full relative", className)}>
+            className={mergeClassName("flex flex-wrap content-baseline w-full h-full relative", className)}>
             {/* 拖拽盒子父级 需要 relative/absolute */}
             {
                 !!ChartComp.length && ChartComp.map((CompName, index) => (

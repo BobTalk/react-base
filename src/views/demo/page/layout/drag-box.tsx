@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 16:21:22
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-23 15:48:45
+ * @LastEditTime: 2023-02-24 10:55:23
  * @FilePath: /react-base/src/views/demo/page/layout/drag-box.tsx
  * @Description: 拖拽盒子
  */
@@ -19,7 +19,9 @@ const DragBox = ({ options = {}, ...props }) => {
         childrenEl,
         position,
         dragElFlag,
-        dragElSite
+        dragElSite,
+        boxX,
+        boxY
     } = logic(props, options)
     return <Draggable
         bounds="parent"
@@ -32,7 +34,13 @@ const DragBox = ({ options = {}, ...props }) => {
             height={dragBoxH}
             className="border"
             onResize={onResize}>
-            <div className='_drag' style={{ width: pxToRem(dragBoxW), height: pxToRem(dragBoxH) }}>
+            <div
+                className='absolute _drag'
+                style={{
+                    position: 'absolute',
+                    width: pxToRem(dragBoxW),
+                    height: pxToRem(dragBoxH)
+                }}>
                 {childrenEl}
             </div>
         </Resizable>
