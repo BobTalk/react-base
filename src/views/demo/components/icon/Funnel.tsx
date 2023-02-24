@@ -2,14 +2,15 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2022-10-18 18:40:27
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-01-09 13:56:59
+ * @LastEditTime: 2023-02-24 11:44:11
  * @FilePath: /fe-cig-dvp-report/src/components/report/IconComp/copy.tsx
  * @Description: 漏斗icon
  */
 import Icon from "@ant-design/icons";
 const LouDouComp = (props) => {
+  let { width, height } = props;
   const Svg = () => (
-    <svg width="58" height="40" viewBox="0 0 58 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 58 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="&#230;&#188;&#143;&#230;&#150;&#151;&#229;&#155;&#190;">
         <path id="Fill 2" fill-rule="evenodd" clip-rule="evenodd" d="M21.7903 29.976L29.0791 40L36.3294 29.976H21.7903Z" fill="#04A9F5" />
         <path id="Fill 1" fill-rule="evenodd" clip-rule="evenodd" d="M21.7903 29.9759L36.3294 29.976L43.5738 19.953L14.5051 19.953L21.7903 29.9759Z" fill="#F2A821" />

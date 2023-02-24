@@ -2,13 +2,13 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 16:21:22
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-24 10:55:23
+ * @LastEditTime: 2023-02-24 11:32:05
  * @FilePath: /react-base/src/views/demo/page/layout/drag-box.tsx
  * @Description: 拖拽盒子
  */
 import Draggable from 'react-draggable';
 import { Resizable } from 'react-resizable';
-import { pxToRem } from '../../../../utils.js';
+import { pxToRem } from '@/utils';
 import logic from "./drag-box-logic.js";
 const DragBox = ({ options = {}, ...props }) => {
     let {
@@ -20,6 +20,7 @@ const DragBox = ({ options = {}, ...props }) => {
         position,
         dragElFlag,
         dragElSite,
+        isResizableDisabled,
         boxX,
         boxY
     } = logic(props, options)
@@ -32,6 +33,7 @@ const DragBox = ({ options = {}, ...props }) => {
         <Resizable
             width={dragBoxW}
             height={dragBoxH}
+            resizeHandles={isResizableDisabled ? []: ['se']}
             className="border"
             onResize={onResize}>
             <div

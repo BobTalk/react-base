@@ -2,13 +2,13 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 18:10:31
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-24 08:59:39
+ * @LastEditTime: 2023-02-24 11:14:52
  * @FilePath: /react-base/src/views/demo/page/icon/item.tsx
  * @Description: 根据类型渲染不同图标
  */
 
 import { memo, useState } from "react";
-import { addChartsId, addChartsConfig } from "../../../../redux/action";
+import { addChartsId, addChartsConfig, addChartsSite } from "../../../../redux/action";
 import chartsOptions from "../../chartsConfig/options.js";
 import { generateUUID } from "@/utils.ts";
 import scopeStyle from "./box.module.less";
@@ -27,10 +27,20 @@ const ItemIconComp = ({ options = {}, ...props }) => {
         let uuid = generateUUID() + "_" + chartType
         let options = chartsOptions[chartType]
         if (!options) return
-        let { activeChartsId = [], activeChartsConfig = {} } = getState()
+        let { activeChartsId = [], activeChartsConfig = {}, activeChartsSite = {} } = getState()
         dispatch(addChartsId([...activeChartsId, uuid]))
         let key = activeChartsConfig[uuid]
         dispatch(addChartsConfig({ ...activeChartsConfig, [uuid]: options }))
+        //  图表默认宽高位置
+        dispatch(addChartsSite({
+            [uuid]: {
+                ...activeChartsSite,
+                h: 200,
+                w: 200,
+                x: 0,
+                y: 0
+            }
+        }))
     }
     return CompName ? <div onClick={
         () => { chartClick(icon) }
