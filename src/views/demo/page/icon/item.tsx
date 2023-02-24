@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 18:10:31
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-23 18:21:41
+ * @LastEditTime: 2023-02-24 08:59:39
  * @FilePath: /react-base/src/views/demo/page/icon/item.tsx
  * @Description: 根据类型渲染不同图标
  */
@@ -16,7 +16,6 @@ const ItemIconComp = ({ options = {}, ...props }) => {
     let { title, icon } = options;
     let { dispatch, getState } = props;
     let [CompName, setCompName] = useState(null);
-    console.log('CompName: ', CompName);
     // 根据图表类型进行组建加载
     const impComp = async () => {
         let IconComp = await import(`../../components/icon/${icon}.tsx`)

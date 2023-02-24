@@ -2,7 +2,7 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 10:11:15
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-23 18:44:50
+ * @LastEditTime: 2023-02-24 08:58:36
  * @FilePath: /react-base/src/views/demo/page/layout/canvas.tsx
  * @Description:画布
  */
@@ -32,11 +32,13 @@ const CanvasPage = (props) => {
             {
                 !!ChartComp.length && ChartComp.map((CompName, index) => (
                     <DragBox key={index} options={{
-                        x: 20,
-                        y: 0,
+                        x: 180,
+                        y: 202,
                         handle: '.title'
                     }}>
-                        <CompName />
+                        <CompName>
+                            <p className='title'>title</p>
+                        </CompName>
                     </DragBox>))
             }
         </div >)
