@@ -2,11 +2,12 @@
  * @Author: heyongqiang 1498833800@qq.com
  * @Date: 2023-02-21 16:22:42
  * @LastEditors: heyongqiang 1498833800@qq.com
- * @LastEditTime: 2023-02-21 17:02:03
+ * @LastEditTime: 2023-02-24 10:17:35
  * @FilePath: /react-base/src/views/demo/page/layout/drag-box.js
  * @Description: 拖拽盒子-逻辑
  */
 import { useEffect, useRef, useState } from "react";
+import { addChartsSite } from "@/redux/action/index.ts";
 export default function (props, options = {}) {
     let [isDragDisabled, setDragDisabled] = useState(false);
     let [dragBoxW, setDragBoxW] = useState(200);
@@ -22,6 +23,9 @@ export default function (props, options = {}) {
         let { x, y } = data;
         setBoxX(() => x)
         setBoxY(() => y)
+        props.dispatch(addChartsSite({
+            ...props.activeChartsSite, [props.chartsId]: { x, y }
+        }))
     }
     return {
         onResize,
