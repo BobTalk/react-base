@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-27 14:51:47
- * @LastEditTime: 2023-02-21 09:37:44
+ * @LastEditTime: 2024-03-14 22:30:00
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description:路由配置文件
  * @FilePath: /react-demo/src/router/router.config.js
@@ -29,6 +29,7 @@ import ForwardRef from "@/views/forwardRef/index";
 import InsertChildNode from "@/views/insertChildNode/index";
 import syncExternalStore from "@/views/useSyncExternalStore";
 import transitionComp from "@/views/useTransition";
+import TabsComp from "@/views/Tabs";
 import BarComp from "@/views/Bar/index";
 import DemoProject from "@/views/demo/index";
 const routeList = [
@@ -47,6 +48,10 @@ const routeList = [
       {
         path: "colorChild",
         component: ContentComp, //ContentChildComp,
+      },
+      {
+        path: "tabs",
+        component:TabsComp
       },
       {
         path: "contextIndex",

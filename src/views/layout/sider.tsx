@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-05-04 19:42:00
- * @LastEditTime: 2023-02-23 16:00:45
+ * @LastEditTime: 2024-03-14 22:32:43
  * @LastEditors: heyongqiang 1498833800@qq.com
  * @Description: 导航组件
  * @FilePath: /react-demo/src/views/layout/sider.tsx
@@ -86,6 +86,12 @@ const SideComp = forwardRef((props, ref) => {
       "响应式数据",
       "useReactiveComp",
       "/layout/useReactive",
+      <AppstoreOutlined />
+    ),
+    getItem(
+      "tabs",
+      "tabs",
+      "/layout/tabs",
       <AppstoreOutlined />
     ),
     getItem(
